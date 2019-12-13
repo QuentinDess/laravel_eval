@@ -30,15 +30,15 @@
    
        
        
-        
+        <ul class="navbar-nav ml-auto">
             @if(Auth::check())
             @if(Auth::user()->role->role=="Admin")
-            
-          <ul class="navbar-nav mr-auto">
-             <li class="nav-item dropdown mr-auto">
-                <button id="navbarDropdown" class=" btn btn-success  dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+               
+         
+             <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
-                </button>
+                </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -52,58 +52,51 @@
                     </form>
                 </div>
             </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <button class=" btn btn-success" href="{{ route('showAnimals')}}">Nos Animaux</button>
+                <a class="nav-link" href="{{ route('showAnimals')}}">Nos Animaux</a>
             </li>
             
             <li class="nav-item">
-                <button class=" btn btn-success" href="{{ route('showRaces')}}">Nos Races</button>
+                <a class="nav-link" href="{{ route('showRaces')}}">Nos Races</a>
             </li>
             <li class="nav-item">
-                <button class=" btn btn-success" href="{{ route('createAnimal')}}">Ajouter Animaux</button>
+                <a class="nav-link" href="{{ route('createAnimal')}}">Ajouter Animaux</a>
             </li>
             <li class="nav-item">
-            <button class=" btn btn-success" href="{{ route('createRace')}}">Ajouter Races</button>
+            <a class="nav-link" href="{{ route('createRace')}}">Ajouter Races</a>
             </li>
-          </ul>
             @else
-          <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <button id="navbarDropdown btn btn-success" class=" dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
-                </button>
+                </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <button class="dropdown-item btn btn-success" href="{{ route('logout') }}"
+                    <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
-                    </button>
+                    </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>
             </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">  
             <li class="nav-item">
-                <button class=" btn btn-success" href="{{ route('showAnimals')}}">Nos Animaux</button>
+                <a class="nav-link" href="{{ route('showAnimals')}}">Nos Animaux</a>
             </li>
             
             <li class="nav-item">
-                <button class=" btn btn-success" href="{{ route('showRaces')}}">Nos Races</button>
+                <a class="nav-link" href="{{ route('showRaces')}}">Nos Races</a>
             </li>
-          </ul>
-            @endif
+            @endif 
             @else
             <li class="nav-item">
-                <button class="btn btn-success" href="{{ route('login') }}">{{ __('Login') }}</button>
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
             <li class="nav-item">
-                <button class=" btn btn-success" href="{{ route('showAnimals')}}">Nos Animaux</button>
+                <a class="nav-link" href="{{ route('showAnimals')}}">Nos Animaux</a>
             </li>
             @endif
         </ul>
